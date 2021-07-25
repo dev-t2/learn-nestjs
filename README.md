@@ -1,6 +1,7 @@
 # Learn NestJS - A progressive Node.js framework
 
 - Node.js: https://nodejs.org/ko/
+  - TypeScript: https://www.npmjs.com/package/typescript
   - @types/node: https://www.npmjs.com/package/@types/node
   - TS-Node: https://www.npmjs.com/package/ts-node
   - Nodemon: https://www.npmjs.com/package/nodemon
