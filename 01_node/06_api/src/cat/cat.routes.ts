@@ -60,24 +60,6 @@ router.put('/:id', (req, res) => {
   }
 });
 
-router.patch('/:id', (req, res) => {
-  try {
-    const { id } = req.params;
-    const data = req.body;
-    const index = Cat.findIndex(cat => cat.id === parseInt(id, 10));
-
-    if (index !== -1) {
-      Cat[index] = { ...Cat[index], ...data };
-
-      res.send({ isSuccess: true });
-    } else {
-      res.status(404).send({ isSuccess: false, error: 'Cat Not Found' });
-    }
-  } catch (error) {
-    res.status(400).send({ isSuccess: false, error: error.message });
-  }
-});
-
 router.delete('/:id', (req, res) => {
   try {
     const { id } = req.params;
