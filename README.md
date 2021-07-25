@@ -1,7 +1,5 @@
 # Learn NestJS - A progressive Node.js framework
 
-## Node.js
-
 - Node.js: https://nodejs.org/ko/
   - TypeScript: https://www.npmjs.com/package/typescript
   - @types/node: https://www.npmjs.com/package/@types/node
@@ -11,9 +9,3 @@
 - Express: https://expressjs.com/ko/
   - @types/express: https://www.npmjs.com/package/@types/express
 - Postman: https://www.postman.com/downloads/
-
----
-
-## Database
-
-- MongoDB: https://www.mongodb.com/
