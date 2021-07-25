@@ -1,10 +1,8 @@
-import { Router } from 'express';
+import { Request, Response } from 'express';
 
 import { Cat } from './cat.model';
 
-const router = Router();
-
-router.post('/', (req, res) => {
+export const createCat = (req: Request, res: Response) => {
   try {
     const id = Cat[Cat.length - 1].id + 1;
     const data = { id, ...req.body };
@@ -15,9 +13,9 @@ router.post('/', (req, res) => {
   } catch (error) {
     res.status(400).send({ isSuccess: false, error: error.message });
   }
-});
+};
 
-router.get('/', (req, res) => {
+export const readCats = (req: Request, res: Response) => {
   try {
     const cats = Cat;
 
@@ -25,9 +23,9 @@ router.get('/', (req, res) => {
   } catch (error) {
     res.status(400).send({ isSuccess: false, error: error.message });
   }
-});
+};
 
-router.get('/:id', (req, res) => {
+export const readCat = (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const cat = Cat.find(cat => cat.id === parseInt(id, 10));
@@ -40,9 +38,9 @@ router.get('/:id', (req, res) => {
   } catch (error) {
     res.status(400).send({ isSuccess: false, error: error.message });
   }
-});
+};
 
-router.put('/:id', (req, res) => {
+export const updateCat = (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const data = req.body;
@@ -58,27 +56,9 @@ router.put('/:id', (req, res) => {
   } catch (error) {
     res.status(400).send({ isSuccess: false, error: error.message });
   }
-});
+};
 
-router.patch('/:id', (req, res) => {
-  try {
-    const { id } = req.params;
-    const data = req.body;
-    const index = Cat.findIndex(cat => cat.id === parseInt(id, 10));
-
-    if (index !== -1) {
-      Cat[index] = { ...Cat[index], ...data };
-
-      res.send({ isSuccess: true });
-    } else {
-      res.status(404).send({ isSuccess: false, error: 'Cat Not Found' });
-    }
-  } catch (error) {
-    res.status(400).send({ isSuccess: false, error: error.message });
-  }
-});
-
-router.delete('/:id', (req, res) => {
+export const deleteCat = (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const index = Cat.findIndex(cat => cat.id === parseInt(id, 10));
@@ -93,6 +73,4 @@ router.delete('/:id', (req, res) => {
   } catch (error) {
     res.status(400).send({ isSuccess: false, error: error.message });
   }
-});
-
-export default router;
+};

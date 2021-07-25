@@ -1,6 +1,6 @@
 import express from 'express';
 
-import catRouter from './cat/cat.routes';
+import catRouter from './cat/cat.route';
 
 const app = express();
 const port = 3000;
