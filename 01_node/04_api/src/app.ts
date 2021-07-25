@@ -5,38 +5,47 @@ import { Cat } from './app.model';
 const app = express();
 const port = 3000;
 
-app.use((req, res, next) => {
-  console.log('Global Middleware');
+app.use(express.json());
 
-  next();
-});
+app.post('/cat', (req, res) => {
+  try {
+    const id = Cat[Cat.length - 1].id + 1;
+    const data = { id, ...req.body };
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+    Cat.push(data);
+
+    res.send({ isSuccess: true, data });
+  } catch (error) {
+    res.status(400).send({ isSuccess: false, error: error.message });
+  }
 });
 
 app.get('/cats', (req, res) => {
-  res.send({ cats: Cat });
+  try {
+    const cats = Cat;
+
+    res.send({ isSuccess: true, data: cats });
+  } catch (error) {
+    res.status(400).send({ isSuccess: false, error: error.message });
+  }
 });
 
-app.get(
-  '/cats/:id',
-  (req, res, next) => {
-    console.log('Router Middleware');
-
-    next();
-  },
-  (req, res) => {
+app.get('/cats/:id', (req, res) => {
+  try {
     const { id } = req.params;
     const cat = Cat.find(cat => cat.id === parseInt(id, 10));
 
-    res.send(cat);
+    if (cat) {
+      res.send({ isSuccess: true, data: cat });
+    } else {
+      res.status(404).send({ isSuccess: false, error: 'Cat Not Found' });
+    }
+  } catch (error) {
+    res.status(400).send({ isSuccess: false, error: error.message });
   }
-);
+});
 
 app.use((req, res) => {
-  console.log('Not Found Middleware');
-
   res.status(404).send('Not Found');
 });
 
