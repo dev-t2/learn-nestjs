@@ -13,6 +13,9 @@
   "rules": {
     "linebreak-style": "off",
     "no-console": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "arrow-parens": "off",
+    "no-shadow": "off",
+    "comma-dangle": "off"
   }
 }
