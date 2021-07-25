@@ -1,5 +1,5 @@
 {
-  "name": "01_setup",
+  "name": "01_node",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon src/app.ts"
