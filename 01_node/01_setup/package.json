@@ -2,7 +2,7 @@
   "name": "01_setup",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon app.ts"
+    "dev": "nodemon src/app.ts"
   },
   "license": "MIT",
   "dependencies": {
