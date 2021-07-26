@@ -13,3 +13,4 @@
 ---
 
 - NestJS: https://nestjs.com/
+  - CLI Usage: https://docs.nestjs.com/cli/usages
