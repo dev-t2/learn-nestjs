@@ -18,3 +18,4 @@
   - Providers: https://docs.nestjs.com/providers
   - Modules: https://docs.nestjs.com/modules
   - Middleware: https://docs.nestjs.com/middleware
+  - Logging: https://docs.nestjs.com/techniques/logger#using-the-logger-for-application-logging
