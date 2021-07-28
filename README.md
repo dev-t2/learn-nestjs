@@ -19,3 +19,4 @@
   - Modules: https://docs.nestjs.com/modules
   - Middleware: https://docs.nestjs.com/middleware
   - Logging: https://docs.nestjs.com/techniques/logger#using-the-logger-for-application-logging
+  - Exception Filters: https://docs.nestjs.com/exception-filters#throwing-standard-exceptions
