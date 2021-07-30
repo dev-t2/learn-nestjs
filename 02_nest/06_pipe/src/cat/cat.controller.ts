@@ -1,4 +1,12 @@
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+  Put,
+} from '@nestjs/common';
 
 import { CatService } from './cat.service';
 
@@ -17,7 +25,9 @@ export class CatController {
   }
 
   @Get(':id')
-  getCat(): string {
+  getCat(@Param('id', ParseIntPipe) id: number): string {
+    console.log(id);
+
     return 'Get Cat';
   }
 
