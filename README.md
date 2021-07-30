@@ -21,3 +21,4 @@
   - Logging: https://docs.nestjs.com/techniques/logger#using-the-logger-for-application-logging
   - Exception Filters: https://docs.nestjs.com/exception-filters#throwing-standard-exceptions
   - Pipes: https://docs.nestjs.com/pipes
+  - Request Lifecycle: https://docs.nestjs.com/faq/request-lifecycle
