@@ -6,12 +6,15 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
-import { PositiveIntPipe } from 'src/common/pipe/positive-int.pipe';
 
+import { SuccessInterceptor } from 'src/common/interceptor/success.interceptor';
+import { PositiveIntPipe } from 'src/common/pipe/positive-int.pipe';
 import { CatService } from './cat.service';
 
 @Controller('cat')
+@UseInterceptors(SuccessInterceptor)
 export class CatController {
   constructor(private readonly catService: CatService) {}
 
