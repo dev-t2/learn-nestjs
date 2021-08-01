@@ -14,11 +14,12 @@
 
 - NestJS: https://nestjs.com/
   - CLI Usage: https://docs.nestjs.com/cli/usages
-  - Controllers: https://docs.nestjs.com/controllers
-  - Providers: https://docs.nestjs.com/providers
-  - Modules: https://docs.nestjs.com/modules
+  - Controller: https://docs.nestjs.com/controllers
+  - Provider: https://docs.nestjs.com/providers
+  - Module: https://docs.nestjs.com/modules
   - Middleware: https://docs.nestjs.com/middleware
   - Logging: https://docs.nestjs.com/techniques/logger#using-the-logger-for-application-logging
-  - Exception Filters: https://docs.nestjs.com/exception-filters#throwing-standard-exceptions
-  - Pipes: https://docs.nestjs.com/pipes
+  - Exception Filter: https://docs.nestjs.com/exception-filters#throwing-standard-exceptions
+  - Pipe: https://docs.nestjs.com/pipes
+  - Interceptor: https://docs.nestjs.com/interceptors
   - Request Lifecycle: https://docs.nestjs.com/faq/request-lifecycle
