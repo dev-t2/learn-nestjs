@@ -4,6 +4,7 @@ import {
   Get,
   Header,
   HttpCode,
+  Param,
   Query,
   Redirect,
   Req,
@@ -69,5 +70,10 @@ export class AppController {
   @Redirect('https://docs.nestjs.com', 302)
   dynamicRedirect(@Query('navigation') navigation) {
     return { url: `https://docs.nestjs.com/${navigation}` };
+  }
+
+  @Get('parameter/:param')
+  parameter(@Param('param') param: string) {
+    return param;
   }
 }
