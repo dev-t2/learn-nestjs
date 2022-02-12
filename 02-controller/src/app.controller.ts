@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Controller,
   Get,
+  Header,
   HttpCode,
   Req,
   Res,
@@ -48,5 +49,11 @@ export class AppController {
     throw new BadRequestException('BadRequestException');
 
     return 'Throw';
+  }
+
+  @Get('header')
+  @Header('Custom', 'Custom Header')
+  header(): string {
+    return 'Header';
   }
 }
