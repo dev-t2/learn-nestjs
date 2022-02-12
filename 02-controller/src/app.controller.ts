@@ -6,7 +6,12 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('routing')
-  getHello(): string {
+  routing(): string {
     return 'Routing';
+  }
+
+  @Get('w*ldcard')
+  wildcard(): string {
+    return 'Wildcard';
   }
 }
