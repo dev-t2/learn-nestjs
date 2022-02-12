@@ -1,16 +1,20 @@
 import {
   BadRequestException,
+  Body,
   Controller,
   Get,
   Header,
   HttpCode,
   Param,
+  Post,
   Query,
   Redirect,
   Req,
   Res,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
+
+import { CreateUserDto } from './dto/create-user.dto';
 import { AppService } from './app.service';
 
 @Controller('app')
@@ -75,5 +79,10 @@ export class AppController {
   @Get('parameter/:param')
   parameter(@Param('param') param: string) {
     return param;
+  }
+
+  @Post()
+  createUser(@Body() createUser: CreateUserDto) {
+    return createUser;
   }
 }
