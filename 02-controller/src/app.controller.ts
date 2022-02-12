@@ -4,6 +4,8 @@ import {
   Get,
   Header,
   HttpCode,
+  Query,
+  Redirect,
   Req,
   Res,
 } from '@nestjs/common';
@@ -55,5 +57,17 @@ export class AppController {
   @Header('Custom', 'Custom Header')
   header(): string {
     return 'Header';
+  }
+
+  @Get('redirect')
+  @Redirect('https://docs.nestjs.com', 301)
+  redirect() {
+    return 'Redirect';
+  }
+
+  @Get('dynamic-redirect')
+  @Redirect('https://docs.nestjs.com', 302)
+  dynamicRedirect(@Query('navigation') navigation) {
+    return { url: `https://docs.nestjs.com/${navigation}` };
   }
 }
