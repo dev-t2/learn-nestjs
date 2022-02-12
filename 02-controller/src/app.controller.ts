@@ -1,5 +1,12 @@
-import { Controller, Get, Req } from '@nestjs/common';
-import { Request } from 'express';
+import {
+  BadRequestException,
+  Controller,
+  Get,
+  HttpCode,
+  Req,
+  Res,
+} from '@nestjs/common';
+import { Request, Response } from 'express';
 import { AppService } from './app.service';
 
 @Controller('app')
@@ -21,5 +28,25 @@ export class AppController {
     console.log(req);
 
     return 'Request';
+  }
+
+  @Get('response')
+  response(@Res() res: Response) {
+    console.log(res);
+
+    return res.status(200).send('Response');
+  }
+
+  @Get('http-code')
+  @HttpCode(200)
+  httpCode(): string {
+    return 'Http Code';
+  }
+
+  @Get('throw')
+  throw(): string {
+    throw new BadRequestException('BadRequestException');
+
+    return 'Throw';
   }
 }
