@@ -82,7 +82,7 @@ export class AppController {
   }
 
   @Post()
-  createUser(@Body() createUser: CreateUserDto) {
-    return createUser;
+  createUser(@Body() createUserDto: CreateUserDto) {
+    return createUserDto;
   }
 }
