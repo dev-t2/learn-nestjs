@@ -5,3 +5,5 @@
 - Prettier: https://prettier.io
   - End of Line: https://prettier.io/docs/en/options.html#end-of-line
 - UUID: https://www.npmjs.com/package/uuid
+- Nodemailer: https://nodemailer.com/about
+  - npm: https://www.npmjs.com/package/nodemailer
