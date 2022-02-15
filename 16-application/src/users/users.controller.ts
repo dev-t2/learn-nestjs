@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { VerifyEmailDto } from './dto/verify-email.dto';
-import { SignUpDto } from './dto/sign-up.dto';
-import { SignInDto } from './dto/sign-in.dto';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { SignUpDto } from './dto/sign-up.dto';
+import { VerifyEmailDto } from './dto/verify-email.dto';
+import { SignInDto } from './dto/sign-in.dto';
 
 @Controller('users')
 export class UsersController {
@@ -10,11 +10,11 @@ export class UsersController {
 
   @Post('sign-up')
   async signUp(@Body() signUpDto: SignUpDto): Promise<void> {
-    console.log(signUpDto);
+    const { name, email, password } = signUpDto;
   }
 
-  @Post('email-verification')
-  async verifyEmail(@Body() verifyEmailDto: VerifyEmailDto): Promise<string> {
+  @Get('email-verification')
+  async verifyEmail(@Query() verifyEmailDto: VerifyEmailDto): Promise<string> {
     console.log(verifyEmailDto);
 
     return;
