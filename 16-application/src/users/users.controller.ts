@@ -1,8 +1,6 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { SignUpDto } from './dto/sign-up.dto';
-import { VerifyEmailDto } from './dto/verify-email.dto';
-import { SignInDto } from './dto/sign-in.dto';
+import { SignInDto, SignUpDto, VerifyEmailDto } from './users.dto';
 
 @Controller('users')
 export class UsersController {
@@ -11,9 +9,11 @@ export class UsersController {
   @Post('sign-up')
   async signUp(@Body() signUpDto: SignUpDto): Promise<void> {
     const { name, email, password } = signUpDto;
+
+    await this.usersService.signUp(name, email, password);
   }
 
-  @Get('email-verification')
+  @Post('email-verification')
   async verifyEmail(@Query() verifyEmailDto: VerifyEmailDto): Promise<string> {
     console.log(verifyEmailDto);
 
