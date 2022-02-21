@@ -7,5 +7,6 @@
   - Providers: https://docs.nestjs.com/providers
   - CLI: https://docs.nestjs.com/cli/usages
   - Modules: https://docs.nestjs.com/modules
+  - Middleware: https://docs.nestjs.com/middleware
 - Prettier: https://prettier.io
   - End of Line: https://prettier.io/docs/en/options.html#end-of-line
