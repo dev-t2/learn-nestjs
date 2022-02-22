@@ -12,3 +12,4 @@
   - Exception Filters: https://docs.nestjs.com/exception-filters
   - Pipes: https://docs.nestjs.com/pipes
     - Pipes and Filters Pattern: https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters
+  - Interceptors: https://docs.nestjs.com/interceptors
