@@ -6,17 +6,20 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
 import { CatsService } from './cats.service';
+import { SuccessInterceptor } from 'src/common/interceptors/success.interceptor';
 import { PositiveIntPipe } from 'src/common/pipes/positive-int.pipe';
 
 @Controller('cats')
+@UseInterceptors(SuccessInterceptor)
 export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 
   @Get()
   getCats() {
-    return 'getCats';
+    return { cats: [] };
   }
 
   @Get(':id')
