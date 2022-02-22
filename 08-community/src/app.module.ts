@@ -1,6 +1,7 @@
-import { Module } from '@nestjs/common';
+import { Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import mongoose from 'mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -9,4 +10,9 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure() {
+    // TODO: Production Mongoose Debug False Setup
+    mongoose.set('debug', true);
+  }
+}
