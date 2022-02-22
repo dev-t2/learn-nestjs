@@ -16,3 +16,5 @@
   - Request lifecycle: https://docs.nestjs.com/faq/request-lifecycle
   - MongoDB: https://docs.nestjs.com/techniques/mongodb
   - Configuration: https://docs.nestjs.com/techniques/configuration
+- Prettier: https://prettier.io
+  - End of Line: https://prettier.io/docs/en/options.html#end-of-line
