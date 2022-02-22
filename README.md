@@ -14,3 +14,4 @@
     - Pipes and Filters Pattern: https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters
   - Interceptors: https://docs.nestjs.com/interceptors
     - Request lifecycle: https://docs.nestjs.com/faq/request-lifecycle
+  - MongoDB: https://docs.nestjs.com/techniques/mongodb
