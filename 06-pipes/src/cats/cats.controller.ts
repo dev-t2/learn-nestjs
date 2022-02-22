@@ -2,9 +2,8 @@ import {
   Controller,
   Delete,
   Get,
-  HttpException,
-  HttpStatus,
   Param,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -16,13 +15,11 @@ export class CatsController {
 
   @Get()
   getCats() {
-    throw new HttpException('FORBIDDEN', HttpStatus.FORBIDDEN);
-
     return 'getCats';
   }
 
   @Get(':id')
-  getCat(@Param('id') id: string) {
+  getCat(@Param('id', ParseIntPipe) id: number) {
     console.log(id);
 
     return 'getCat';
