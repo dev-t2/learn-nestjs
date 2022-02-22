@@ -16,7 +16,7 @@ export class CatsController {
 
   @Get()
   getCats() {
-    throw new HttpException({ isSuccess: false }, HttpStatus.FORBIDDEN);
+    throw new HttpException('FORBIDDEN', HttpStatus.FORBIDDEN);
 
     return 'getCats';
   }
