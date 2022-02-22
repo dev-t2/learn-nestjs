@@ -11,3 +11,4 @@
   - Logger: https://docs.nestjs.com/techniques/logger
   - Exception Filters: https://docs.nestjs.com/exception-filters
   - Pipes: https://docs.nestjs.com/pipes
+- Pipes and Filters pattern: https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters
