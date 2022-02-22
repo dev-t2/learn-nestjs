@@ -1,4 +1,13 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { CatsService } from './cats.service';
 
 @Controller('cats')
@@ -7,6 +16,8 @@ export class CatsController {
 
   @Get()
   getCats() {
+    throw new HttpException('HttpException', HttpStatus.INTERNAL_SERVER_ERROR);
+
     return 'getCats';
   }
 
