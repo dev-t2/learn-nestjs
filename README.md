@@ -6,3 +6,4 @@
   - [Controllers](https://docs.nestjs.com/controllers)
   - [Providers](https://docs.nestjs.com/providers)
 - [UUID](https://github.com/uuidjs/uuid)
+- [Nodemailer](https://nodemailer.com/about)
