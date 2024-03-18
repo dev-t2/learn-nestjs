@@ -7,5 +7,6 @@
     - [Controllers](https://docs.nestjs.com/controllers)
     - [Providers](https://docs.nestjs.com/providers)
     - [Modules](https://docs.nestjs.com/modules)
+    - [Middleware](https://docs.nestjs.com/middleware)
   - CLI
     - [Usage](https://docs.nestjs.com/cli/usages)
