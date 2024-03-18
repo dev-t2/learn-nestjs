@@ -1,31 +1,34 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 
+import { CatsService } from './cats.service';
 import { CreateCatDto, FindCatsDto, UpdateCatDto } from './cats.dto';
 
 @Controller('cats')
 export class CatsController {
+  constructor(private readonly catsService: CatsService) {}
+
   @Post()
   createCat(@Body() createCatDto: CreateCatDto) {
-    return `Create Cat - Name: ${createCatDto.name}`;
+    return this.catsService.createCat(createCatDto);
   }
 
   @Get()
   findCats(@Query() findCatsDto: FindCatsDto) {
-    return `Find Cats - Limit: ${findCatsDto.limit}`;
+    return this.catsService.findCats(findCatsDto);
   }
 
   @Get(':id')
   findCat(@Param('id') id: number) {
-    return `Find Cat ${id}`;
+    return this.catsService.findCat(id);
   }
 
   @Put(':id')
   updateCat(@Param('id') id: number, @Body() updateCatDto: UpdateCatDto) {
-    return `Update Cat ${id} - Name: ${updateCatDto.name}`;
+    return this.catsService.updateCat(id, updateCatDto);
   }
 
   @Delete(':id')
   deleteCat(@Param('id') id: number) {
-    return `Delete Cat ${id}`;
+    return this.catsService.deleteCat(id);
   }
 }
