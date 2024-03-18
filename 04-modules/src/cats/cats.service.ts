@@ -4,6 +4,10 @@ import { CreateCatDto, FindCatsDto, UpdateCatDto } from './cats.dto';
 
 @Injectable()
 export class CatsService {
+  getHello() {
+    return 'Hello Cats World!';
+  }
+
   createCat(createCatDto: CreateCatDto) {
     return `Create Cat - Name: ${createCatDto.name}`;
   }
