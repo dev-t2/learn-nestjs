@@ -8,5 +8,8 @@
     - [Providers](https://docs.nestjs.com/providers)
     - [Modules](https://docs.nestjs.com/modules)
     - [Middleware](https://docs.nestjs.com/middleware)
+  - Techniques
+    - [Logger](https://docs.nestjs.com/techniques/logger)
   - CLI
     - [Usage](https://docs.nestjs.com/cli/usages)
+- [Morgan](https://github.com/expressjs/morgan)
