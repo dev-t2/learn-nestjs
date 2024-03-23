@@ -8,6 +8,7 @@
     - [Providers](https://docs.nestjs.com/providers)
     - [Modules](https://docs.nestjs.com/modules)
     - [Middleware](https://docs.nestjs.com/middleware)
+    - [Exception Filters](https://docs.nestjs.com/exception-filters)
   - Techniques
     - [Logger](https://docs.nestjs.com/techniques/logger)
   - CLI
