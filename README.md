@@ -9,6 +9,7 @@
     - [Modules](https://docs.nestjs.com/modules)
     - [Middleware](https://docs.nestjs.com/middleware)
     - [Exception Filters](https://docs.nestjs.com/exception-filters)
+    - [Pipes](https://docs.nestjs.com/pipes)
   - Techniques
     - [Logger](https://docs.nestjs.com/techniques/logger)
   - CLI
