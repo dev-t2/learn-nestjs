@@ -12,6 +12,7 @@
     - [Pipes](https://docs.nestjs.com/pipes)
   - Techniques
     - [Logger](https://docs.nestjs.com/techniques/logger)
+    - [Validation](https://docs.nestjs.com/techniques/validation)
   - CLI
     - [Usage](https://docs.nestjs.com/cli/usages)
 - [Morgan](https://github.com/expressjs/morgan)
