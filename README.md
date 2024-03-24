@@ -15,4 +15,6 @@
     - [Validation](https://docs.nestjs.com/techniques/validation)
   - CLI
     - [Usage](https://docs.nestjs.com/cli/usages)
+  - FAQ
+    - [Request Lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
 - [Morgan](https://github.com/expressjs/morgan)
