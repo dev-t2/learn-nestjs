@@ -1,4 +1,4 @@
-import { IsString, IsPositive, IsNotEmpty } from 'class-validator';
+import { IsString, IsPositive, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateCatDto {
   @IsString()
@@ -7,6 +7,7 @@ export class CreateCatDto {
 }
 
 export class FindCatsDto {
+  @IsOptional()
   @IsPositive()
   limit: number;
 }
