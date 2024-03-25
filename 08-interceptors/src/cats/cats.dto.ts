@@ -9,7 +9,7 @@ export class CreateCatDto {
 export class FindCatsDto {
   @IsOptional()
   @IsPositive()
-  limit: number;
+  limit?: number;
 }
 
 export class UpdateCatDto {

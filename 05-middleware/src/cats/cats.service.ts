@@ -13,7 +13,7 @@ export class CatsService {
   }
 
   findCats(findCatsDto: FindCatsDto) {
-    return `Find Cats - Limit: ${findCatsDto.limit}`;
+    return `Find Cats - Limit: ${findCatsDto.limit ?? ''}`;
   }
 
   findCat(id: number) {

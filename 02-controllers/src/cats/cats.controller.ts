@@ -11,7 +11,7 @@ export class CatsController {
 
   @Get()
   findCats(@Query() findCatsDto: FindCatsDto) {
-    return `Find Cats - Limit: ${findCatsDto.limit}`;
+    return `Find Cats - Limit: ${findCatsDto.limit ?? ''}`;
   }
 
   @Get(':id')

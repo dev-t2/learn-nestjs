@@ -3,7 +3,7 @@ export class CreateCatDto {
 }
 
 export class FindCatsDto {
-  limit: number;
+  limit?: number;
 }
 
 export class UpdateCatDto {
