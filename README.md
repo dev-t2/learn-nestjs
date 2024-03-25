@@ -10,6 +10,7 @@
     - [Middleware](https://docs.nestjs.com/middleware)
     - [Exception Filters](https://docs.nestjs.com/exception-filters)
     - [Pipes](https://docs.nestjs.com/pipes)
+    - [Interceptors](https://docs.nestjs.com/interceptors)
   - Techniques
     - [Logger](https://docs.nestjs.com/techniques/logger)
     - [Validation](https://docs.nestjs.com/techniques/validation)
