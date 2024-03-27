@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 
+import { ParsePositiveIntPipe } from 'src/common/pipes';
 import { TodosService } from './todos.service';
 import { CreateTodoDto, UpdateTodoDto } from './todos.dto';
 
@@ -8,27 +9,22 @@ export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
   @Post()
-  create(@Body() createTodoDto: CreateTodoDto) {
-    return this.todosService.create(createTodoDto);
+  createTodo(@Body() createTodoDto: CreateTodoDto) {
+    return this.todosService.createTodo(createTodoDto);
   }
 
   @Get()
-  findAll() {
-    return this.todosService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.todosService.findOne(+id);
+  findTodos() {
+    return this.todosService.findTodos();
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
-    return this.todosService.update(+id, updateTodoDto);
+  updateTodo(@Param('id', ParsePositiveIntPipe) id: number, @Body() updateTodoDto: UpdateTodoDto) {
+    return this.todosService.updateTodo(id, updateTodoDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.todosService.remove(+id);
+  deleteTodos(@Param('id', ParsePositiveIntPipe) id: number) {
+    return this.todosService.deleteTodos(id);
   }
 }

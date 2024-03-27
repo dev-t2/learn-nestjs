@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 
+import { ParsePositiveIntPipe } from 'src/common/pipes';
 import { CatsService } from './cats.service';
 import { CreateCatDto, FindCatsDto, UpdateCatDto } from './cats.dto';
-import { ParsePositiveIntPipe } from 'src/common/pipes';
 
 @Controller('cats')
 export class CatsController {

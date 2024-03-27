@@ -4,27 +4,19 @@ import { CreateTodoDto, UpdateTodoDto } from './todos.dto';
 
 @Injectable()
 export class TodosService {
-  create(createTodoDto: CreateTodoDto) {
-    console.log(createTodoDto);
-
-    return 'This action adds a new todo';
+  createTodo(createTodoDto: CreateTodoDto) {
+    return createTodoDto;
   }
 
-  findAll() {
-    return `This action returns all todos`;
+  findTodos() {
+    return;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} todo`;
+  updateTodo(id: number, updateTodoDto: UpdateTodoDto) {
+    return { id, ...updateTodoDto };
   }
 
-  update(id: number, updateTodoDto: UpdateTodoDto) {
-    console.log(updateTodoDto);
-
-    return `This action updates a #${id} todo`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} todo`;
+  deleteTodos(id: number) {
+    return { id };
   }
 }
