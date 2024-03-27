@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 
-import { HttpLoggerMiddleware } from './common/middlewares';
 import { TodosModule } from './todos/todos.module';
+import { HttpLoggerMiddleware } from './common/middlewares';
 
 @Module({
   imports: [TodosModule],
