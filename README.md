@@ -16,6 +16,11 @@
     - [Validation](https://docs.nestjs.com/techniques/validation)
   - CLI
     - [Usage](https://docs.nestjs.com/cli/usages)
+  - OpenAPI
+    - [Introduction](https://docs.nestjs.com/openapi/introduction)
+    - [Types and Parameters](https://docs.nestjs.com/openapi/types-and-parameters)
+    - [Operations](https://docs.nestjs.com/openapi/operations)
+    - [Mapped Types](https://docs.nestjs.com/openapi/mapped-types)
   - FAQ
     - [Request Lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
 - [Morgan](https://github.com/expressjs/morgan)
