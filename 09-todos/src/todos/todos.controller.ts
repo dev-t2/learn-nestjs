@@ -10,7 +10,13 @@ import {
   BadRequestException,
   ParseArrayPipe,
 } from '@nestjs/common';
-import { ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  ApiCreatedResponse,
+  ApiOkResponse,
+  ApiOperation,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
 
 import { ParsePositiveIntPipe } from 'src/common/pipes';
 import { TodosService } from './todos.service';
@@ -36,15 +42,19 @@ export class TodosController {
   }
 
   @ApiOperation({ summary: 'Delete Todos' })
+  @ApiQuery({ name: 'ids', type: String, required: false })
   @Delete()
-  deleteTodos(@Query('ids', new ParseArrayPipe()) ids: number[]) {
+  deleteTodos(
+    @Query('ids', new ParseArrayPipe({ items: Number, separator: ',', optional: true }))
+    ids?: number[],
+  ) {
     return this.todosService.deleteTodos(ids);
   }
 
   @ApiOperation({ summary: 'Update Todo' })
   @Patch(':id')
   updateTodo(@Param('id', ParsePositiveIntPipe) id: number, @Body() updateTodoDto: UpdateTodoDto) {
-    if (Object.keys(updateTodoDto).length) {
+    if (Object.keys(updateTodoDto).length > 0) {
       return this.todosService.updateTodo(id, updateTodoDto);
     }
 

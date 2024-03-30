@@ -8,20 +8,19 @@ export class TodosService {
   private todos: ITodo[] = [];
 
   createTodo({ content }: CreateTodoDto) {
-    const length = this.todos.length;
-    const id = length > 0 ? this.todos[length - 1].id + 1 : 1;
-    const todo: ITodo = { id, content: content.trim(), isComplete: false };
+    const id = this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1;
+    const createdTodo: ITodo = { id, content: content.trim(), isComplete: false };
 
-    this.todos = [...this.todos, todo];
+    this.todos = [...this.todos, createdTodo];
 
-    return todo;
+    return createdTodo;
   }
 
   findTodos() {
     return this.todos;
   }
 
-  deleteTodos(ids: number[]) {
+  deleteTodos(ids?: number[]) {
     if (ids) {
       const deleteIds = this.todos.reduce((result: number[], todo) => {
         return ids.includes(todo.id) ? [...result, todo.id] : result;
