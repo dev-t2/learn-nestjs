@@ -1,4 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  BadRequestException,
+  ParseArrayPipe,
+} from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { ParsePositiveIntPipe } from 'src/common/pipes';
@@ -24,15 +35,19 @@ export class TodosController {
     return this.todosService.findTodos();
   }
 
+  @ApiOperation({ summary: 'Delete Todos' })
+  @Delete()
+  deleteTodos(@Query('ids', new ParseArrayPipe()) ids: number[]) {
+    return this.todosService.deleteTodos(ids);
+  }
+
   @ApiOperation({ summary: 'Update Todo' })
   @Patch(':id')
   updateTodo(@Param('id', ParsePositiveIntPipe) id: number, @Body() updateTodoDto: UpdateTodoDto) {
-    return this.todosService.updateTodo(id, updateTodoDto);
-  }
+    if (Object.keys(updateTodoDto).length) {
+      return this.todosService.updateTodo(id, updateTodoDto);
+    }
 
-  @ApiOperation({ summary: 'Delete Todos' })
-  @Delete(':id')
-  deleteTodos(@Param('id', ParsePositiveIntPipe) id: number) {
-    return this.todosService.deleteTodos(id);
+    throw new BadRequestException();
   }
 }

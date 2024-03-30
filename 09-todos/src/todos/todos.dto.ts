@@ -1,14 +1,14 @@
 import { ApiProperty, OmitType, PartialType, PickType } from '@nestjs/swagger';
 
-import { Todo } from './todo.entity';
+import { ITodo } from './todo.interface';
 
-export class CreateTodoDto extends PickType(Todo, ['content'] as const) {}
+export class CreateTodoDto extends PickType(ITodo, ['content'] as const) {}
 
-export class CreateTodoResponse extends Todo {}
+export class CreateTodoResponse extends ITodo {}
 
 export class FindTodosResponse {
-  @ApiProperty({ type: [Todo] })
-  todos: Todo[];
+  @ApiProperty({ type: [ITodo] })
+  todos: ITodo[];
 }
 
-export class UpdateTodoDto extends PartialType(OmitType(Todo, ['id'] as const)) {}
+export class UpdateTodoDto extends PartialType(OmitType(ITodo, ['id'] as const)) {}

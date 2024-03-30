@@ -1,12 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsPositive, IsString } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsPositive, IsString } from 'class-validator';
 
-export class Todo {
+export class ITodo {
   @ApiProperty({ required: true, minimum: 1, example: 1, description: 'ID' })
+  @IsNotEmpty()
   @IsPositive()
   id: number;
 
-  @ApiProperty({ default: '', example: 'Learn NestJS', description: 'Content' })
+  @ApiProperty({ default: '', example: 'Content', description: 'Content' })
   @IsString()
   content: string;
 
