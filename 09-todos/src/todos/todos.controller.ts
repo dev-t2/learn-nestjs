@@ -3,12 +3,12 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   Query,
   BadRequestException,
   ParseArrayPipe,
+  Put,
 } from '@nestjs/common';
 import {
   ApiCreatedResponse,
@@ -52,7 +52,7 @@ export class TodosController {
   }
 
   @ApiOperation({ summary: 'Update Todo' })
-  @Patch(':id')
+  @Put(':id')
   updateTodo(@Param('id', ParsePositiveIntPipe) id: number, @Body() updateTodoDto: UpdateTodoDto) {
     if (Object.keys(updateTodoDto).length > 0) {
       return this.todosService.updateTodo(id, updateTodoDto);
