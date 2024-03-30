@@ -25,6 +25,7 @@
     - [Request Lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
 - [Morgan](https://github.com/expressjs/morgan)
 - [Class Validator](https://github.com/typestack/class-validator)
+- [Class Transformer](https://github.com/typestack/class-transformer)
 - [RxJS](https://rxjs.dev)
   - [Reference](https://rxjs.dev/api)
     - [Map](https://rxjs.dev/api/index/function/map)
