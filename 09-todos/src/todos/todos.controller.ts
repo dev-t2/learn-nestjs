@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { ParsePositiveIntPipe } from 'src/common/pipes';
 import { TodosService } from './todos.service';
-import { CreateTodoDto, UpdateTodoDto } from './todos.dto';
+import { CreateTodoDto, CreateTodoResponse, FindTodosResponse, UpdateTodoDto } from './todos.dto';
 
 @ApiTags('Todos')
 @Controller('todos')
@@ -11,12 +11,14 @@ export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
   @ApiOperation({ summary: 'Create Todo' })
+  @ApiCreatedResponse({ type: CreateTodoResponse })
   @Post()
   createTodo(@Body() createTodoDto: CreateTodoDto) {
     return this.todosService.createTodo(createTodoDto);
   }
 
   @ApiOperation({ summary: 'Find Todos' })
+  @ApiOkResponse({ type: FindTodosResponse })
   @Get()
   findTodos() {
     return this.todosService.findTodos();
