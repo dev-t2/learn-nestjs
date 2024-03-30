@@ -29,3 +29,4 @@
 - [RxJS](https://rxjs.dev)
   - [Reference](https://rxjs.dev/api)
     - [Map](https://rxjs.dev/api/index/function/map)
+- [Express Basic Auth](https://github.com/LionC/express-basic-auth)

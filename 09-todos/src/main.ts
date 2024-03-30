@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import basicAuth from 'express-basic-auth';
 
 import { AppModule } from './app.module';
 import { TransformInterceptor } from './common/interceptors';
@@ -22,6 +23,8 @@ async function bootstrap() {
   );
 
   app.useGlobalFilters(new HttpExceptionFilter());
+
+  app.use(['/docs', '/docs-json'], basicAuth({ challenge: true, users: { austin: 'P@ssw0rd' } }));
 
   const config = new DocumentBuilder()
     .setTitle('Todos API')
