@@ -14,6 +14,7 @@ export class TodosService {
     const tag = name ? this.tagsService.createTag({ name }) : null;
 
     const id = this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1;
+
     const createdTodo: ITodo = {
       id,
       content: content.trim(),
