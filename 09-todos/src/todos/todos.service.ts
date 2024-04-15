@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 
 import { ITodo } from './todos.interface';
 import { TagsService } from 'src/tags/tags.service';
-import { CreateTodoDto, UpdateTodoDto } from './todos.dto';
+import { CreateTodoDto, IFindTodo, UpdateTodoDto } from './todos.dto';
 
 @Injectable()
 export class TodosService {
@@ -11,10 +11,15 @@ export class TodosService {
   constructor(private readonly tagsService: TagsService) {}
 
   createTodo({ content, name }: CreateTodoDto) {
-    const tag = this.tagsService.createTag({ name });
+    const tag = name ? this.tagsService.createTag({ name }) : null;
 
     const id = this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1;
-    const createdTodo: ITodo = { id, content: content.trim(), isComplete: false, tagId: tag.id };
+    const createdTodo: ITodo = {
+      id,
+      content: content.trim(),
+      isComplete: false,
+      tagId: tag?.id ?? null,
+    };
 
     this.todos = [...this.todos, createdTodo];
 
@@ -22,7 +27,17 @@ export class TodosService {
   }
 
   findTodos() {
-    return { todos: this.todos };
+    const todos: IFindTodo[] = this.todos.map(({ tagId, ...todo }) => {
+      if (tagId) {
+        const findTag = this.tagsService.findTag(tagId);
+
+        return { ...todo, tag: findTag };
+      }
+
+      return { ...todo, tag: null };
+    });
+
+    return { todos };
   }
 
   deleteTodos(ids?: number[]) {
@@ -41,7 +56,7 @@ export class TodosService {
     }
   }
 
-  updateTodo(id: number, updateTodoDto: UpdateTodoDto) {
+  updateTodo(id: number, { name, ...updateTodo }: UpdateTodoDto) {
     const findTodo = this.todos.find((todo) => todo.id === id);
 
     if (!findTodo) {
@@ -49,7 +64,17 @@ export class TodosService {
     }
 
     this.todos = this.todos.map((todo) => {
-      return todo.id === findTodo.id ? { ...todo, ...updateTodoDto } : todo;
+      if (todo.id === findTodo.id) {
+        if (name) {
+          const tag = this.tagsService.createTag({ name });
+
+          return { ...todo, ...updateTodo, tagId: tag.id };
+        }
+
+        return { ...todo, ...updateTodo };
+      }
+
+      return todo;
     });
   }
 }

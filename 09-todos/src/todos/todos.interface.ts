@@ -15,8 +15,7 @@ export class ITodo {
   @IsBoolean()
   isComplete: boolean;
 
-  @ApiProperty({ required: true, minimum: 1, example: 1, description: 'Tag ID', nullable: true })
-  @IsNotEmpty()
+  @ApiProperty({ minimum: 1, example: 1, nullable: true, description: 'Tag ID' })
   @IsPositive()
   tagId: number | null;
 }

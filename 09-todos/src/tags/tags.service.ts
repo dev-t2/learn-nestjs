@@ -27,15 +27,15 @@ export class TagsService {
   findTag(id: number) {
     const findTag = this.tags.find((tag) => tag.id === id);
 
-    if (!findTag) {
-      throw new NotFoundException();
-    }
-
-    return findTag;
+    return findTag ?? null;
   }
 
   updateTag(id: number, updateTagDto: UpdateTagDto) {
     const findTag = this.findTag(id);
+
+    if (!findTag) {
+      throw new NotFoundException();
+    }
 
     this.tags = this.tags.map((tag) => {
       return tag.id === findTag.id ? { ...tag, ...updateTagDto } : tag;
@@ -44,6 +44,10 @@ export class TagsService {
 
   deleteTag(id: number) {
     const findTag = this.findTag(id);
+
+    if (!findTag) {
+      throw new NotFoundException();
+    }
 
     this.tags = this.tags.filter((tag) => tag.id !== findTag.id);
   }

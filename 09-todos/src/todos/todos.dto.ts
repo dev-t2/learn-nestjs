@@ -5,14 +5,22 @@ import { ITodo } from './todos.interface';
 
 export class CreateTodoDto extends IntersectionType(
   PickType(ITodo, ['content'] as const),
-  PickType(ITag, ['name'] as const),
+  PartialType(PickType(ITag, ['name'] as const)),
 ) {}
 
 export class CreateTodoResponse extends ITodo {}
 
-export class FindTodosResponse {
-  @ApiProperty({ type: [ITodo] })
-  todos: ITodo[];
+export class IFindTodo extends OmitType(ITodo, ['tagId'] as const) {
+  @ApiProperty({ type: ITag, nullable: true })
+  tag: ITag | null;
 }
 
-export class UpdateTodoDto extends PartialType(OmitType(ITodo, ['id'] as const)) {}
+export class FindTodosResponse {
+  @ApiProperty({ type: [IFindTodo] })
+  todos: IFindTodo[];
+}
+
+export class UpdateTodoDto extends IntersectionType(
+  PartialType(OmitType(ITodo, ['id', 'tagId'] as const)),
+  PartialType(OmitType(ITag, ['id'] as const)),
+) {}
