@@ -1,6 +1,6 @@
 import { ApiProperty, OmitType, PartialType, PickType } from '@nestjs/swagger';
 
-import { ITodo } from './todo.interface';
+import { ITodo } from './todos.interface';
 
 export class CreateTodoDto extends PickType(ITodo, ['content'] as const) {}
 

@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 
-import { ITodo } from './todo.interface';
+import { ITodo } from './todos.interface';
 import { CreateTodoDto, UpdateTodoDto } from './todos.dto';
 
 @Injectable()
