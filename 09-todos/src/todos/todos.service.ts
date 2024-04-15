@@ -17,7 +17,7 @@ export class TodosService {
   }
 
   findTodos() {
-    return this.todos;
+    return { todos: this.todos };
   }
 
   deleteTodos(ids?: number[]) {
