@@ -7,18 +7,8 @@ import { CreateTagDto, UpdateTagDto } from './tags.dto';
 export class TagsService {
   private tags: ITag[] = [];
 
-  findTagByName(name: string) {
-    const findTag = this.tags.find((tag) => tag.name === name);
-
-    if (!findTag) {
-      return null;
-    }
-
-    return findTag;
-  }
-
   createTag({ name }: CreateTagDto) {
-    const findTag = this.findTagByName(name);
+    const findTag = this.tags.find((tag) => tag.name === name);
 
     if (findTag) return findTag;
 

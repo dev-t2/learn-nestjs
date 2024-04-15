@@ -1,8 +1,12 @@
-import { ApiProperty, OmitType, PartialType, PickType } from '@nestjs/swagger';
+import { ApiProperty, IntersectionType, OmitType, PartialType, PickType } from '@nestjs/swagger';
 
+import { ITag } from 'src/tags/tags.interface';
 import { ITodo } from './todos.interface';
 
-export class CreateTodoDto extends PickType(ITodo, ['content'] as const) {}
+export class CreateTodoDto extends IntersectionType(
+  PickType(ITodo, ['content'] as const),
+  PickType(ITag, ['name'] as const),
+) {}
 
 export class CreateTodoResponse extends ITodo {}
 

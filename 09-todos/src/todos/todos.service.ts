@@ -1,15 +1,20 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 
 import { ITodo } from './todos.interface';
+import { TagsService } from 'src/tags/tags.service';
 import { CreateTodoDto, UpdateTodoDto } from './todos.dto';
 
 @Injectable()
 export class TodosService {
   private todos: ITodo[] = [];
 
-  createTodo({ content }: CreateTodoDto) {
+  constructor(private readonly tagsService: TagsService) {}
+
+  createTodo({ content, name }: CreateTodoDto) {
+    const tag = this.tagsService.createTag({ name });
+
     const id = this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1;
-    const createdTodo: ITodo = { id, content: content.trim(), isComplete: false };
+    const createdTodo: ITodo = { id, content: content.trim(), isComplete: false, tagId: tag.id };
 
     this.todos = [...this.todos, createdTodo];
 
