@@ -10,14 +10,14 @@ export class CreateTodoDto extends IntersectionType(
 
 export class CreateTodoResponse extends ITodo {}
 
-export class IFindTodo extends OmitType(ITodo, ['tagId'] as const) {
+export class FindTodo extends OmitType(ITodo, ['tagId'] as const) {
   @ApiProperty({ type: ITag, nullable: true })
   tag: ITag | null;
 }
 
 export class FindTodosResponse {
-  @ApiProperty({ type: [IFindTodo] })
-  todos: IFindTodo[];
+  @ApiProperty({ type: [FindTodo] })
+  todos: FindTodo[];
 }
 
 export class UpdateTodoDto extends IntersectionType(

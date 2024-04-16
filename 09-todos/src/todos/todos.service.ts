@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 
 import { ITodo } from './todos.interface';
 import { TagsService } from 'src/tags/tags.service';
-import { CreateTodoDto, IFindTodo, UpdateTodoDto } from './todos.dto';
+import { CreateTodoDto, FindTodo, UpdateTodoDto } from './todos.dto';
 
 @Injectable()
 export class TodosService {
@@ -28,7 +28,7 @@ export class TodosService {
   }
 
   findTodos() {
-    const todos: IFindTodo[] = this.todos.map(({ tagId, ...todo }) => {
+    const todos: FindTodo[] = this.todos.map(({ tagId, ...todo }) => {
       if (tagId) {
         const findTag = this.tagsService.findTag(tagId);
 
