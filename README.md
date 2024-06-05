@@ -14,6 +14,7 @@
   - Techniques
     - [Logger](https://docs.nestjs.com/techniques/logger)
     - [Validation](https://docs.nestjs.com/techniques/validation)
+    - [Caching](https://docs.nestjs.com/techniques/caching)
   - CLI
     - [Usage](https://docs.nestjs.com/cli/usages)
   - OpenAPI
